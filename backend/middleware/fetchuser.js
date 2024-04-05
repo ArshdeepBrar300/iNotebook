@@ -2,11 +2,11 @@
 
 // JSON Web Token(JWT) is an open standard used to share security information between two parties — a client and a server. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = "Saarthakisagood$oy";
+const JWT_SECRET = "b0742345623214e7f5aac75a4200799d80b55d26a62b97cd23015c33ae3ac11513e2e7$oy";
 
 const fetchuser = (req, res, next) => {
   // Get the user from the jwt token and add id to the request object
-  const token = req.header("auth-token");
+  const token = req.header("Auth-Token");
   if (!token) {
     res.status(401).send({error: "Please authenticate using the valid token"});
   }

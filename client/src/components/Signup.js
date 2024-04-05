@@ -8,7 +8,12 @@ const Signup = props => {
         password: "",
         cpassword: "",
     });
-
+    const [alert, setAlert] = useState(null);
+    const showAlert = (message, type) => {
+      setAlert({
+        msg: message,
+        type: type,
+      });}
     let navigate = useNavigate();
 
     //when user clicks on Submit to signup then I will create entry of that user in my database by using the /createuser route
@@ -28,9 +33,9 @@ const Signup = props => {
             // Save the auth token and redirect
             localStorage.setItem("token", json.authtoken);
             navigate("/home");
-            props.showAlert("Account created Successfully", "success");
+            showAlert("Account created Successfully", "success");
         } else {
-            props.showAlert("User already exists", "danger");
+            showAlert("User already exists", "danger");
         }
     };
 
@@ -40,6 +45,8 @@ const Signup = props => {
 
     return (
         <div className="container mt-4">
+             { alert && 
+            <Alert msg={alert?.msg} type={alert?.type} />}
             <h2 className="text-warning mb-4">Sign Up to access iNotebook</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3 form-floating">
