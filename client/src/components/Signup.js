@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Alert from "./Alert";
 
 const Signup = props => {
     const [credentials, setCredentials] = useState({
