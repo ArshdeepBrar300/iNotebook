@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import NoteContext from "./noteContext";
 
 const NoteState = props => {
-  const host = "https://inotebookserver-db1v.onrender.com";
+  // const host = "https://inotebookserver-db1v.onrender.com";
   const notesInitial = [];
 
   const [notes, setNotes] = useState(notesInitial);
@@ -12,7 +12,7 @@ const NoteState = props => {
   // auth-token is required for this step
   const getNotes = async () => {
     // API Call
-    const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+    const response = await fetch(`https://inotebookserver-db1v.onrender.com/api/notes/fetchallnotes`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const NoteState = props => {
   // auth-token is required for this step
   const addNote = async (title, description, tag) => {
     // TODO: API Call
-    const response = await fetch(`${host}/api/notes/addnote`, {
+    const response = await fetch(`https://inotebookserver-db1v.onrender.com/api/notes/addnote`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const NoteState = props => {
   // Delete a Note
   const deleteNote = async id => {
     // API Call
-    const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
+    const response = await fetch(`https://inotebookserver-db1v.onrender.com/api/notes/deletenote/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const NoteState = props => {
   // Edit a Note
   const editNote = async (id, title, description, tag) => {
     // API calls
-    const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+    const response = await fetch(`https://inotebookserver-db1v.onrender.com/api/notes/updatenote/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
